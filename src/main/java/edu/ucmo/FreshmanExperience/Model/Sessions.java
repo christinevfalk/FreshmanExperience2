@@ -71,5 +71,4 @@ public class Sessions {
                 ", Session Instructor = " + instructor + '\'' +
                 '}';
     }
-
 }

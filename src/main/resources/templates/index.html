@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
+<html xmlns:th="https://www.thymeleaf.org">
+<head lang="en">
     <meta charset="UTF-8">
     <title>Freshman Experience</title>
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
 </head>
 <body>
 <h1>Freshman Experience</h1>
 <p1>WELCOME TO FRESHMAN EXPERIENCE</p1>
-<br>
-<button onclick="document.location='built/InformationalSessions.html'">Informational Sessions</button>
-<button onclick="document.location='built/FacultyLogin.html'">Faculty Login</button>
+
+Logged in user: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
+<form th:action="@{/logout}" method="POST">
+    <input class="btn btn-primary" type="submit" value="Logout"/>
+</form>
+
+<div id="react"></div>
+
+<script src="built/bundle.js"></script>
+
+
+<!--<button onclick="document.location='built/InformationalSessions.html'">Informational Sessions</button>
+<button onclick="document.location='built/FacultyLogin.html'">Faculty Login</button>-->
 </body>
 </html>
