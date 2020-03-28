@@ -23,7 +23,6 @@ VALUES (2, '$2y$10$A50PPo/tm3skv9iguM4UpOJg3ZUulV0XMB3iuGpx7po4k9OcFrREO', 'Prog
 REPLACE INTO users (ucmoId, password, fname, lname, email, active)
 VALUES (3, '$2a$10$INhB6JyK/oGQqM1dVKoBS.r.qJ9aJUWS7E9nXvrwyxfa7L8EXBlwa', 'Please', 'Work', 'pleaseWork@acme.com', TRUE);
 
-
 REPLACE INTO user_role (user_id, role_id) VALUES (1,1);
 REPLACE INTO user_role (user_id, role_id) VALUES (2,2);
 REPLACE INTO user_role (user_id, role_id) VALUES (3,2);
