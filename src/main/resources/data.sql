@@ -7,22 +7,20 @@ INSERT INTO sessions (title, location, instructor) VALUES ('UNIV 1400', 'Union 1
 INSERT INTO sessions (title, location, instructor) VALUES ('Time Management', 'Union 106', 'Ding');
 INSERT INTO sessions (title, location, instructor) VALUES ('Curing a Case of Homesickness', 'Union 107', 'Kang');
 
-INSERT INTO users(ucmoId, password, fname, lname, email, active) VALUES ('700000001', 'password', 'Christine', 'Falk', 'cvf71530@ucmo.edu',1);
-INSERT INTO users(ucmoId, password, fname, lname, email, active) VALUES ('700000002', 'password', 'Kate', 'Pohlman', 'kxp70570@ucmo.edu',1);
-INSERT INTO users(ucmoId, password, fname, lname, email, active) VALUES ('700000003', 'password', 'Olivia', 'Erickson', 'ole82660@ucmo.edu',1);
-
 REPLACE INTO roles VALUE (1, 'USER');
 REPLACE INTO roles VALUE (2, 'ADMIN');
 
-REPLACE INTO users (ucmoId, password, fname, lname, email, active)
-VALUES (1, '$2y$10$A50PPo/tm3skv9iguM4UpOJg3ZUulV0XMB3iuGpx7po4k9OcFrREO', 'Program', 'User', 'user@acme.com', TRUE);
+REPLACE INTO users (user_name, password, first_name, last_name, email, active)
+VALUES (700000001, '$2y$10$A50PPo/tm3skv9iguM4UpOJg3ZUulV0XMB3iuGpx7po4k9OcFrREO', 'Christine', 'Falk', 'cvf71530@ucm.com', TRUE);
 
-REPLACE INTO users (ucmoId, password, fname, lname, email, active)
-VALUES (2, '$2y$10$A50PPo/tm3skv9iguM4UpOJg3ZUulV0XMB3iuGpx7po4k9OcFrREO', 'Program', 'Admin', 'admin@acme.com', TRUE);
+REPLACE INTO users (user_name, password, first_name, last_name, email, active)
+VALUES (700000002, '$2y$10$A50PPo/tm3skv9iguM4UpOJg3ZUulV0XMB3iuGpx7po4k9OcFrREO', 'Kate', 'Pohlman', 'kxp70570@ucm.com', TRUE);
 
-REPLACE INTO users (ucmoId, password, fname, lname, email, active)
-VALUES (3, '$2a$10$INhB6JyK/oGQqM1dVKoBS.r.qJ9aJUWS7E9nXvrwyxfa7L8EXBlwa', 'Please', 'Work', 'pleaseWork@acme.com', TRUE);
+REPLACE INTO users (user_name, password, first_name, last_name, email, active)
+VALUES (700000003, '$2y$10$A50PPo/tm3skv9iguM4UpOJg3ZUulV0XMB3iuGpx7po4k9OcFrREO', 'Olivia', 'Erickson', 'ole82660@ucm.com', TRUE);
 
-REPLACE INTO user_role (user_id, role_id) VALUES (1,1);
-REPLACE INTO user_role (user_id, role_id) VALUES (2,2);
-REPLACE INTO user_role (user_id, role_id) VALUES (3,2);
+REPLACE INTO user_role (user_name, role_id) VALUES (700000001,1);
+REPLACE INTO user_role (user_name, role_id) VALUES (700000002,2);
+REPLACE INTO user_role (user_name, role_id) VALUES (700000003,2);
+
+REPLACE INTO session_attendance (id, user_name) VALUES (4,700000001);

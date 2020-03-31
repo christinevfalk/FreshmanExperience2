@@ -8,6 +8,7 @@ package edu.ucmo.FreshmanExperience.Service;
         import org.springframework.security.core.authority.SimpleGrantedAuthority;
         import org.springframework.security.core.userdetails.UserDetails;
         import org.springframework.security.core.userdetails.UserDetailsService;
+        import org.springframework.security.core.userdetails.UsernameNotFoundException;
         import org.springframework.stereotype.Service;
 
         import javax.transaction.Transactional;
@@ -24,8 +25,11 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     @Transactional
-    public UserDetails loadUserByUsername(String ucmoId) {
-        User user = userDao.findByUcmoId(ucmoId);
+    public UserDetails loadUserByUsername(String ucmoid) {
+        User user = userDao.findByUcmoid(ucmoid);
+        if(user == null) {
+            throw new UsernameNotFoundException(String.format("The UCMO ID %s doesn't exist", ucmoid));
+        }
         List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
         return buildUserForAuthentication(user, authorities);
     }
@@ -39,7 +43,7 @@ public class MyUserDetailsService implements UserDetailsService {
     }
 
     private UserDetails buildUserForAuthentication(User user, List<GrantedAuthority> authorities) {
-        return new org.springframework.security.core.userdetails.User(user.getUcmoId(), user.getPassword(),
+        return new org.springframework.security.core.userdetails.User(user.getUcmoid(), user.getPassword(),
                 user.getActive(), true, true, true, authorities);
     }
 }

@@ -10,8 +10,8 @@ import java.util.Set;
 public class User {
 
     @Id
-   @Column(name = "user_id")
-    private String ucmoId;
+    @Column(name = "user_name")
+    private String ucmoid;
     @JsonIgnore
     @Column(name = "password")
     private String password;
@@ -25,14 +25,15 @@ public class User {
     private Boolean active;
 
     @ManyToMany(cascade = CascadeType.MERGE)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_name"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+
     private Set<Role> roles;
 
-    public String getUcmoId() {
-        return ucmoId;
+    public String getUcmoid() {
+        return ucmoid;
     }
-    public void setUcmoId(String ucmoId) {
-        this.ucmoId = ucmoId;
+    public void setUcmoid(String ucmoid) {
+        this.ucmoid = ucmoid;
     }
     public String getPassword() {
         return password;
@@ -74,7 +75,7 @@ public class User {
     @Override
     public String toString(){
         return "User{"  +
-                "UCMO id=" + ucmoId +
+                "UCMO id=" + ucmoid +
                 ", First Name = " + fname +'\'' +
                 ", Last Name = " + lname + '\'' +
                 ", Email = " + email + '\'';
