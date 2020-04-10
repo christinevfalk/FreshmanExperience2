@@ -22,3 +22,11 @@ CREATE TABLE roles (
     role            VARCHAR(255)    NOT NULL,
     PRIMARY KEY (role_id)
     );
+DROP TABLE IF EXISTS session_attendance;
+CREATE TABLE session_attendance (
+    id              INT             NOT NULL,
+    user_name       VARCHAR(255)    NOT NULL,
+    PRIMARY KEY (id, user_name),
+    FOREIGN KEY (id) REFERENCES sessions (id),
+    FOREIGN KEY (user_name) REFERENCES users (user_name)
+    );

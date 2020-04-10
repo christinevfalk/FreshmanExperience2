@@ -1,5 +1,4 @@
 package edu.ucmo.FreshmanExperience.Model;
-
 import javax.persistence.*;
 
 @Entity
