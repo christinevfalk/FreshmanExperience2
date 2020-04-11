@@ -3,38 +3,41 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Freshman Experience</title>
-    <link rel="stylesheet" href="/main.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/main.css" />
 </head>
 <body style="background-color: #cf202e">
-<div style="background-color: black; color: white; padding-right: 20px; text-align:right;">
-    Logged in user: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
-    <form th:action="@{/logout}" method="POST">
-        <input class="btn btn-primary" type="submit" value="Logout"/>
-    </form>
-</div>
+    <div style="background-color: black; color: white; padding-right: 20px; text-align:right;">
+        Logged in User: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
+        <form th:action="@{/logout}" method="POST">
+            <input class="btn btn-primary" type="submit" value="Logout"; style="background-color: #cf202e; border-color: black;"/>
+        </form>
+    </div>
 
-<div>
-   <div style="background-color: white; text-align:center;"> <img src="../img/Academic-Mark-2-Line-BW.png" alt="UCMO Logo"> </div>
-</div>
-    <!--
-<div align="left"> <img src="../img/Academic-Mark-2-Line-CMYK.png" alt="UCMO Academic color Logo" style="width:70%" > </div>
--->
-<h1 style="text-align:center;">Freshman Experience</h1>
-<p style="text-align:center;">WELCOME TO FRESHMAN EXPERIENCE</p>
+    <div>
+        <div style="background-color: white; text-align:center;"> <img src="../img/Academic-Mark-2-Line-BW.png" alt="UCMO Logo"> </div>
+    </div>
 
-<br>
-
+    <h1 style="text-align:center;">Freshman Experience</h1>
+    <p style="text-align:center;">WELCOME TO FRESHMAN EXPERIENCE</p><br>
 
 <div id="react"></div>
 
 <script src="built/bundle.js"></script>
 
-<div style="text-align:center;">
-    <button onclick="document.location='built/InformationalSessions.html'">Informational Sessions</button>
-    <button onclick="document.location='built/Schedule.html'">Schedule of Events</button>
-</div>
+    <div style="text-align:center;">
+        <button onclick="document.location='built/Schedule.html'">Schedule of Events</button><br>
+        <button onclick="document.location='../templates/InformationalSessions.html'">  ../templates/informational</button>
+        <button onclick="document.location='/templates/InformationalSessions.html'">'/templates/InformationalSessions.html'</button>
+        <button onclick="document.location='templates/InformationagitlSessions.html'">'templates/InformationalSessions.html'</button>
+        <button onclick="document.location='/InformationalSessions.html'">  '/InformationalSessions.html'</button>
+        <button onclick="document.location='InformationalSessions.html'">'InformationalSessions.html'</button>
+        <button onclick="document.location='../InformationalSessions.html'"></button>
+        <a href="InformationalSessions.html">INFORMATIONAL SESSIONS</a><br>
+        <button onclick="document.location='/resources/templates/InformationalSessions2.html'">  /resources/templates/InformationalSessions2.html' </button>
+        <button onclick="document.location='resources/templates/InformationalSessions2.html'">  ../templates/InformationalSessions2.html </button>
+        <button onclick="document.location='../resources/templates/InformationalSessions2.html'">  ../resources/templates/InformationalSessions2.html </button>
+    </div>
 
-<!--<button onclick="document.location='built/FacultyLogin.html'">Faculty Login</button>-->
 </body>
 </html>
