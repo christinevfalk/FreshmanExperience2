@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <title>Freshman Experience Login</title>
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+</head>
+<body>
+<div style="text-align: center;" > <img src="../img/UCMO23.png" alt="UCMO Logo"> </div>
+
+
+<!--   -->
+<h1 style="text-align: center;">Freshman Experience</h1>
+<p style="text-align: center;">WELCOME TO FRESHMAN EXPERIENCE</p>
+<div class="container">
+    <form th:action="@{/login}" method="POST" class="form-signin">
+        <h3 class="form-signin-heading" th:text="Welcome"></h3>
+        <br/>
+
+        <input type="text" id="user_name" name="user_name" placeholder="700#"
+               class="form-control"/> <br/>
+        <input type="password" th:placeholder="password"
+               id="password" name="password" class="form-control"/> <br/>
+
+        <div align="right" th:if="${param.error}">
+            <p style="font-size: 20px; color: #cf202e; ">User Name or Password invalid, please verify</p>
+        </div>
+        <!--   #cf202e;-->
+        <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit"
+                th:text="Login"></button>
+    </form>
+</div>
+
+</body>
+</html>

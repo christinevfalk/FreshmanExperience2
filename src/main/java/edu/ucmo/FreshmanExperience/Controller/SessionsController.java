@@ -1,57 +1,49 @@
 package edu.ucmo.FreshmanExperience.Controller;
 
 import edu.ucmo.FreshmanExperience.Dao.SessionsDao;
+import edu.ucmo.FreshmanExperience.Dao.UserDao;
 import edu.ucmo.FreshmanExperience.Model.Sessions;
+import edu.ucmo.FreshmanExperience.Model.User;
+import edu.ucmo.FreshmanExperience.Service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.Session;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.Set;
 
-@RestController
-@RequestMapping("sessions")
+
+@Controller
 public class SessionsController {
 
     @Autowired
-    private SessionsDao sessionsDao;
+    private UserDao userD;
+    @Autowired
+    private SessionsDao sessionsD;
+    @Autowired
+    private SessionService service;
 
-    @GetMapping
-    public List<Sessions> listSessions() {
-        List<Sessions> list = new ArrayList<>();
-        sessionsDao.findAll().iterator().forEachRemaining(list::add);
-        return list;
-    }
+    @GetMapping("/session/{id}")
+    public String session(@PathVariable int id) {
 
-    @PostMapping("/add")
-    public Sessions saveSessions(@RequestBody Sessions sessions) {
-        Sessions newSessions = new Sessions(sessions.getTitle(), sessions.getLocation(), sessions.getInstructor());
-        return sessionsDao.save(newSessions);
-    }
-
-    @GetMapping("/{id}")
-    public Sessions getOne(@PathVariable int id) {
-        Optional<Sessions> optionalSessions = sessionsDao.findById(id);
-        return optionalSessions.isPresent() ? optionalSessions.get() : null;
-    }
-
-    @GetMapping("/title/{title}")
-    public List<Sessions> getTitle(@PathVariable String title) {
-        return sessionsDao.findByTitle(title);
-    }
-
-    @PutMapping("/update")
-    public Sessions update(@RequestBody Sessions sessionsUpdate){
-        Optional<Sessions> optionalSessions = sessionsDao.findById(sessionsUpdate.getId());
-        if(optionalSessions.isPresent()){
-            sessionsDao.save(sessionsUpdate);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            String currentUserName = authentication.getName();
+            System.out.println("Session " + currentUserName + "," + id);
+            User user = userD.findByUcmoid(currentUserName);
+            Sessions sessions = service.get(id);
+            Set<User> users = sessions.getUsers();
+            users.add(user);
+            sessions.setUsers(users);
+            sessionsD.save(sessions);
+        } else {
+            System.out.println("Error - No One Logged In");
         }
-        return sessionsUpdate;
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable int id){
-        sessionsDao.deleteById(id);
+        if (id == 1)
+            return "QR";
+        else
+            return "QR2";
     }
 }

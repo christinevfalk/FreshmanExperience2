@@ -2,6 +2,7 @@ package edu.ucmo.FreshmanExperience.Model;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "sessions")
@@ -24,6 +25,11 @@ public class Sessions {
     }
 
     public Sessions(){}
+
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(name = "session_attendance", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "user_name"))
+
+    private Set<User> users;
 
     public int getId() {
         return id;
@@ -57,6 +63,13 @@ public class Sessions {
         this.instructor = instructor;
     }
 
+    public Set<User> getUsers(){
+        return users;
+    }
+    public void setUsers(Set<User> users){
+        this.users = users;
+    }
+
     @Override
     public int hashCode(){
         return Objects.hash(id, title, location, instructor);
@@ -71,5 +84,4 @@ public class Sessions {
                 ", Session Instructor = " + instructor + '\'' +
                 '}';
     }
-
 }
