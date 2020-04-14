@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        lang="en">
+<head>
+    <title>Informational Sessions</title>
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../js/bundle.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+
+</head>
+<body style="background-color: #cf202e">
+<!--Logged in user, log out button Thymeleaf-->
+<div style="background-color: black; color: white; padding-right: 20px; text-align:right;">
+    Logged in User: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
+    <form th:action="@{/logout}" method="POST">
+        <input class="btn btn-primary" type="submit" value="Logout"; style="background-color: #cf202e; border-color: black;"/>
+    </form>
+</div>
+<div style="text-align: center;">
+    <img src="../img/Academic-Mark-2-Line-BW.png" alt="UCMO Logo">
+</div>
+<div style="text-align:center;">
+    <h1 >Informational Sessions</h1>
+    <p>Please pick which session you would like more information about.</p>
+    <p></p>
+</div>
+<!-- Blackboard button-->
+<div style="text-align:center;">
+    <form method="GET" th:action="@{/BlackboardSession}">
+        <input type="submit" value="Blackboard Session">
+    </form>
+    <form method="GET" th:action="@{/InfoCombatingHomesickness}">
+        <input type="submit" value="Combating Homesickness">
+    </form>
+    <br>
+    <form method="GET" th:action="@{/InfoCommunityService}">
+        <input type="submit" value="Community Service">
+    </form>
+    <form method="GET" th:action="@{/InfoFinancialAssistanceSession}">
+        <input type="submit" value="InfoFinancial Assistance Session">
+    </form>
+    <br>
+    <form method="GET" th:action="@{/InfoGoogleIt}">
+        <input type="submit" value="Google It">
+    </form>
+    <form method="GET" th:action="@{/InfoPublicSafety}">
+        <input type="submit" value="Public Safety">
+    </form>
+    <br>
+    <form method="GET" th:action="@{/InfoStudentEmployment}">
+        <input type="submit" value="Student Employment">
+    </form>
+    <form method="GET" th:action="@{/InfoStudentOrganizations}">
+        <input type="submit" value="Student Organization">
+    </form>
+    <br>
+    <form method="GET" th:action="@{/InfoTedTalkGrowthMindset}">
+        <input type="submit" value="Ted Talk: Growth Mindset">
+    </form>
+    <form method="GET" th:action="@{/InfoYourSuccessNetwork}">
+        <input type="submit" value="Your Success Network">
+    </form>
+
+
+
+
+</div>
+<br>
+<br>
+
+
+
+
+
+
+<!--DEAD CODE
+<div style="text-align:center;">
+    <div>
+        <button onclick="document.location = 'BlackboardSession.html'"> DEAD Blackboard</button>
+        <button onclick="document.location = 'InfoFinancialAssistanceSession.html'"> Dead Financial Assistance</button>
+    </div><br>
+    <div style="align-content: center">
+        <button onclick="document.location = 'InfoCombatingHomesickness.html'"> Dead Combating Homesickness</button>
+        <button onclick="document.location = 'InfoGoogleIt.html'">Google It</button>
+    </div><br>
+    <div>
+        <button onclick="document.location = 'InfoStudentEmployment.html'">Student Employment</button>
+        <button onclick="document.location = 'InfoStudentOrganizations.html'">Student Organizations</button>
+    </div><br>
+    <div>
+        <button onclick="document.location = 'InfoYourSuccessNetwork.html'">Your Success Network</button>
+        <button onclick="document.location = 'InfoTedTalkGrowthMindset.html'">Ted Talk: Growth Mindset</button>
+    </div><br>
+    <div>
+        <button onclick="document.location = 'InfoPublicSafety.html'">Public Safety</button>
+        <button onclick="document.location = 'InfoCommunityService.html'">Community Service</button>
+    </div><br>
+</div>-->
+</body>
+</html>

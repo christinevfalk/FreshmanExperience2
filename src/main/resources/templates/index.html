@@ -26,17 +26,14 @@
 <script src="built/bundle.js"></script>
 
     <div style="text-align:center;">
-        <button onclick="document.location='built/Schedule.html'">Schedule of Events</button><br>
-        <button onclick="document.location='../templates/InformationalSessions.html'">  ../templates/informational</button>
-        <button onclick="document.location='/templates/InformationalSessions.html'">'/templates/InformationalSessions.html'</button>
-        <button onclick="document.location='templates/InformationagitlSessions.html'">'templates/InformationalSessions.html'</button>
-        <button onclick="document.location='/InformationalSessions.html'">  '/InformationalSessions.html'</button>
-        <button onclick="document.location='InformationalSessions.html'">'InformationalSessions.html'</button>
-        <button onclick="document.location='../InformationalSessions.html'"></button>
-        <a href="InformationalSessions.html">INFORMATIONAL SESSIONS</a><br>
-        <button onclick="document.location='/resources/templates/InformationalSessions2.html'">  /resources/templates/InformationalSessions2.html' </button>
-        <button onclick="document.location='resources/templates/InformationalSessions2.html'">  ../templates/InformationalSessions2.html </button>
-        <button onclick="document.location='../resources/templates/InformationalSessions2.html'">  ../resources/templates/InformationalSessions2.html </button>
+        <form method="GET" th:action="@{/InfoPageTest}">
+            <input type="submit" value="Informational Sessions">
+        </form>
+    </div>
+    <div style="text-align:center;">
+        <form method="GET" th:action="@{/Schedule}">
+            <input type="submit" value="Schedule">
+        </form>
     </div>
 
 </body>
