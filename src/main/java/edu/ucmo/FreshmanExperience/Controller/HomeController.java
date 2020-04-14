@@ -17,10 +17,19 @@ public class HomeController {
 
     @RequestMapping(value = "/")
     public String viewHomePage(Model model) {
-        List<Sessions> listSessions = service.listAll();
-        model.addAttribute("listSessions", listSessions);
+//        List<Sessions> listSessions = service.listAll();
+//        model.addAttribute("listSessions", listSessions);
         return "index";
     }
+
+    @RequestMapping(value = "/Schedule")
+    public String viewHomePage2(Model model) {
+        List<Sessions> listSessions = service.listAll();
+        model.addAttribute("listSessions", listSessions);
+        return "Schedule";
+    }
+
+
 
     @RequestMapping("/new")
     public String showNewSessionPage(Model model){
@@ -34,4 +43,6 @@ public class HomeController {
         service.save(sessions);
         return "redirect:/";
     }
-}
+
+    }
+
