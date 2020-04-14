@@ -42,8 +42,23 @@ public class SessionsController {
             System.out.println("Error - No One Logged In");
         }
         if (id == 1)
-            return "QR";
-        else
-            return "QR2";
+            return "QRBlackboardCheckIn";
+        else if (id == 2)
+            return "InfoFinancialAssistanceSession";
+        else if (id == 3)
+            return "InfoPublicSafety";
+        else if (id == 4)
+            return "InfoGoogleIt";
+        else if (id == 5)
+            return "InfoYourSuccessNetwork";
+        else if (id == 6)
+            return "Univ1400";
+        else if (id == 7)
+            return "InfoTimeManagement";
+        else if (id == 8)
+            return "InfoCombatingHomesickness";
+        else return "index";
+
+
     }
 }
