@@ -38,12 +38,14 @@ public class SessionsController {
             users.add(user);
             sessions.setUsers(users);
             sessionsD.save(sessions);
+            if (id == 1)
+                return "QR";
+            else
+                return "QR2";
         } else {
             System.out.println("Error - No One Logged In");
+            return "login";
         }
-        if (id == 1)
-            return "QR";
-        else
-            return "QR2";
+
     }
 }
