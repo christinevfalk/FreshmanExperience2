@@ -8,10 +8,13 @@
 <div style="background-color: black; text-align:center;"  > <img src="../img/UCMO23.png" alt="UCMO Logo"> </div>
 <div style="text-align:center;" >
     <h1>Schedule of Events</h1>
+    <p>Schedule of Events Listed.</p>
+    <a href="new">Create New Session</a>
 
     <table border="1" cellpadding="10" align="center">
         <thead>
         <tr>
+
             <th>Session ID</th>
             <th>Title</th>
             <th>Location</th>
@@ -21,13 +24,14 @@
         </thead>
         <tbody>
         <tr th:each="sessions : ${listSessions}">
+
             <td th:text="${sessions.id}">Session ID</td>
             <td th:text="${sessions.title}">Title</td>
             <td th:text="${sessions.location}">Location</td>
             <td th:text="${sessions.instructor}">Instructor</td>
             <td>
-                <a th:href="@{/info/(id =${sessions.id})}">More Information</a>
-
+                <a th:href="@{/list/(id =${sessions.id})}">List Attendance</a>
+            </td>
         </tr>
         </tbody>
     </table>

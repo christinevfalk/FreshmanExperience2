@@ -10,6 +10,7 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
@@ -26,7 +27,7 @@ public class SessionsController {
     private SessionService service;
 
     @GetMapping("/session/{id}")
-    public String session(@PathVariable int id) {
+    public String session(@PathVariable int id, Model model) {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
@@ -34,6 +35,8 @@ public class SessionsController {
             System.out.println("Session " + currentUserName + "," + id);
             User user = userD.findByUcmoid(currentUserName);
             Sessions sessions = service.get(id);
+            String sessionTitle = sessions.getTitle();
+            model.addAttribute("sessionTitle", sessionTitle);
             Set<User> users = sessions.getUsers();
             users.add(user);
             sessions.setUsers(users);
@@ -43,23 +46,8 @@ public class SessionsController {
             System.out.println("Error - No One Logged In");
             return "login";
         }
-
-        if (id == 1)
-            return "QRBlackboardCheckIn";
-        else if (id == 2)
-            return "InfoFinancialAssistanceSession";
-        else if (id == 3)
-            return "InfoPublicSafety";
-        else if (id == 4)
-            return "InfoGoogleIt";
-        else if (id == 5)
-            return "InfoYourSuccessNetwork";
-        else if (id == 6)
-            return "Univ1400";
-        else if (id == 7)
-            return "InfoTimeManagement";
-        else if (id == 8)
-            return "InfoCombatingHomesickness";
+        if (id >= 1 &&id <= 8)
+            return "QRCheckIn";
         else return "index";
     }
 }
