@@ -67,8 +67,9 @@ public class HomeController {
     {
         System.out.println("id = " + id);
         Sessions sessions = service.get(id);
+        String sessionTitle = sessions.getTitle();
         Set<User> users = sessions.getUsers();
-        model.addAttribute("session", sessions);
+        model.addAttribute("sessionTitle", sessionTitle);
         model.addAttribute("listStudents", users);
         return "ListStudents";
     }

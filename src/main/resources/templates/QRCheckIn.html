@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>QR Blackboard Check-in</title>
     <!--<link rel="stylesheet" href="style.css">-->
@@ -8,8 +8,11 @@
 
 <div style="background-color: white; text-align:center;"> <img src="../img/Mule_whOutline_Lt.jpg" alt="UCMO Logo"> </div>
 
-    <h1>Your attendance has been recorded at this Blackboard Session.</h1>
-    <p>SECRET PHRASE = "FRESHMAN 2020!!!"</p>
+<h1 style="display:inline;" >Your attendance has been recorded for the</h1>
+    <tr th:each="sessionTitle : ${sessionTitle}">
+    <h1 style="display: inline;" th:text="${sessionTitle}"></h1>
+        <h1 style="display: inline">Session.</h1></tr>
+
 
 </body>
 </html>
