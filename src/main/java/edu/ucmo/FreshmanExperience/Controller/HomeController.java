@@ -92,14 +92,11 @@ public class HomeController {
     public String viewInfoPage (@RequestParam(value = "id") Integer id, Model model) {
         System.out.println("id = " + id);
         Sessions sessions = service.get(id);
-        if (id == 1) return "BlackboardSession";
-        else if (id == 2) return "InfoFinancialAssistanceSession";
-        else if (id == 3) return "InfoPublicSafety";
-        else if (id == 4) return "InfoGoogleIt";
-        else if (id == 5) return "InfoYourSuccessNetwork";
-        else if (id == 6) return "InfoUniv1400";
-        else if (id == 7) return "InfoTimeManagement";
-        else if (id == 8) return "InfoCombatingHomesickness";
+        if (id == 1) return "InfoYourSuccessNetwork";
+        else if (id == 2) return "InfoFirstYearSeminar";
+        else if (id == 3) return "BlackboardSession";
+        else if (id == 4) return "InfoPublicSafety";
+        else if (id == 5) return "InfoCampusDiversity";
         else return "index";
     }
     @RequestMapping(value = "/save", method = RequestMethod.POST)

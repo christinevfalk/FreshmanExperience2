@@ -32,6 +32,7 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
+            <th>Actions</th>
         </tr>
 
         </thead>
@@ -41,6 +42,9 @@
             <td th:text="${students.getFname()}">First Name</td>
             <td th:text="${students.getLname()}">Last Name</td>
             <td th:text="${students.getEmail()}">Email</td>
+            <td>
+                <a th:href="@{/edit/(ucmoid =${students.ucmoid})}">Edit</a>
+            </td>
         </tr>
         </tbody>
     </table>

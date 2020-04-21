@@ -34,4 +34,5 @@ public class UserController {
         userDao.findAll().iterator().forEachRemaining(list::add);
         return list;
     }
+
 }
