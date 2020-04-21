@@ -8,7 +8,10 @@
 
 <div style="background-color: white; text-align:center;"> <img src="../img/Mule_whOutline_Lt.jpg" alt="UCMO Logo"> </div>
 
-<h1 style="display:inline;" >Your attendance has been recorded for the</h1>
+<tr th:each="user : ${user}">
+    <h1 style="display: inline;" th:text="${user.Fname}"></h1>
+
+<h1 style="display:inline;" >, your attendance has been recorded for the</h1>
     <tr th:each="sessionTitle : ${sessionTitle}">
     <h1 style="display: inline;" th:text="${sessionTitle}"></h1>
         <h1 style="display: inline">Session.</h1></tr>

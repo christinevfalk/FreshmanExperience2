@@ -5,6 +5,11 @@
     <title>Freshman Experience</title>
     <link rel="stylesheet" href="/main.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+    <script>
+        function goBack(){
+            window.history.back()
+        }
+    </script>
 </head>
 <body style="background-color: #cf202e">
 <div style="background-color: black; color: white; padding-right: 20px; text-align:right;">
@@ -12,6 +17,7 @@
     <form th:action="@{/logout}" method="POST">
         <input class="btn btn-primary" type="submit" value="Logout"/>
     </form>
+    <button onclick="goBack()">Back to Schedule</button>
 </div>
 
 <div>
@@ -19,13 +25,16 @@
 </div>
 
 <tr th:each="sessionTitle : ${sessionTitle}">
-<h1 th:text="${sessionTitle}"></h1>
+<h1  th:text="${sessionTitle}"></h1>
 
 
 
 
 <div style="text-align:center;" >
+
+
     <table border="1" cellpadding="10" align="center">
+
         <thead>
         <tr>
             <th>Student ID</th>
