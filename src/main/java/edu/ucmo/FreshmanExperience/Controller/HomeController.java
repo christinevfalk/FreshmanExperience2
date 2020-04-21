@@ -42,7 +42,8 @@ public class HomeController {
             List<Role> list = new ArrayList<Role>(role);
             Role obj = list.get(0);
             System.out.println(obj);
-           if (obj.getId()==2){
+
+            if (obj.getId()==2){
                 List<Sessions> listSessions = service.listAll();
                 model.addAttribute("listSessions", listSessions);
                 return "AdminSchedule";
@@ -63,7 +64,7 @@ public class HomeController {
 
     @RequestMapping("/list")
     public String listStudents(
-        @RequestParam(value = "id") Integer id, Model model)
+            @RequestParam(value = "id") Integer id, Model model)
     {
         System.out.println("id = " + id);
         Sessions sessions = service.get(id);
@@ -88,10 +89,20 @@ public class HomeController {
         return "new_session";
     }
 
+    @RequestMapping("/info")
+    public String viewInfoPage (@RequestParam(value = "id") Integer id, Model model) {
+        System.out.println("id = " + id);
+        Sessions sessions = service.get(id);
+        if (id == 1) return "InfoYourSuccessNetwork";
+        else if (id == 2) return "InfoSeminar";
+        else if (id == 3) return "InfoBlackboard";
+        else if (id == 4) return "InfoPublicSafety";
+        else if (id == 5) return "InfoCampusDiversity";
+        else return "index";
+    }
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute("sessions") Sessions sessions) {
         service.save(sessions);
         return "redirect:/";
     }
 }
-

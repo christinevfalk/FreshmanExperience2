@@ -50,7 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .deleteCookies("JSESSIONID")
                 .permitAll();
         http
-            .csrf()
-            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+                .csrf()
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }
 }

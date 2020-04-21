@@ -41,6 +41,7 @@ public class SessionsController {
             users.add(user);
             sessions.setUsers(users);
             sessionsD.save(sessions);
+            model.addAttribute("user", user);
         }
         else {
             System.out.println("Error - No One Logged In");
