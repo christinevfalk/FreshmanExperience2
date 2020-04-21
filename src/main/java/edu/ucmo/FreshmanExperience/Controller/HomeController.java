@@ -88,17 +88,17 @@ public class HomeController {
         return "new_session";
     }
 
-    @RequestMapping("/info")
-    public String viewInfoPage (@RequestParam(value = "id") Integer id, Model model) {
-        System.out.println("id = " + id);
-        Sessions sessions = service.get(id);
-        if (id == 1) return "InfoYourSuccessNetwork";
-        else if (id == 2) return "InfoFirstYearSeminar";
-        else if (id == 3) return "BlackboardSession";
-        else if (id == 4) return "InfoPublicSafety";
-        else if (id == 5) return "InfoCampusDiversity";
-        else return "index";
-    }
+//    @RequestMapping("/info")
+//    public String viewInfoPage (@RequestParam(value = "id") Integer id, Model model) {
+//        System.out.println("id = " + id);
+//        Sessions sessions = service.get(id);
+//        if (id == 1) return "InfoYourSuccessNetwork";
+//        else if (id == 2) return "InfoFirstYearSeminar";
+//        else if (id == 3) return "BlackboardSession";
+//        else if (id == 4) return "InfoPublicSafety";
+//        else if (id == 5) return "InfoCampusDiversity";
+//        else return "index";
+//    }
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute("sessions") Sessions sessions) {
         service.save(sessions);
