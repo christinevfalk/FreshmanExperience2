@@ -26,6 +26,7 @@
 
 <tr th:each="sessionTitle : ${sessionTitle}">
 <h1  th:text="${sessionTitle}"></h1>
+    <a href="add">Add a student to a session</a>
 
 
 
@@ -52,7 +53,10 @@
             <td th:text="${students.getLname()}">Last Name</td>
             <td th:text="${students.getEmail()}">Email</td>
             <td>
-                <a th:href="@{/edit/(ucmoid =${students.ucmoid})}">Edit</a>
+            <!--   <a th:href="@{/edit/(ucmoid =${students.ucmoid})}">Edit</a> -->
+
+                <a th:href="@{'/edit/' + ${students.ucmoid}}">Edit</a>
+
             </td>
         </tr>
         </tbody>

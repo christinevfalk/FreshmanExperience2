@@ -40,6 +40,10 @@
             <td th:text="${sessions.instructor}">Instructor</td>
             <td>
                 <a th:href="@{/list/(id =${sessions.id})}">List Attendance</a>
+                &nbsp; &nbsp; &nbsp;
+                <a th:href="@{'/edit/' + ${sessions.id}}">Edit</a>
+                &nbsp; &nbsp; &nbsp;
+                <a th:href="@{'/delete/' + ${sessions.id}}">Delete</a>
             </td>
         </tr>
         </tbody>

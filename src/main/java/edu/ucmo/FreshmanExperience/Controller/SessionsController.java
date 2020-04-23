@@ -12,6 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Set;
 
@@ -51,4 +52,21 @@ public class SessionsController {
             return "QRCheckIn";
         else return "index";
     }
+
+    @RequestMapping(value = "/edit/{id}")
+    public ModelAndView showEditSessionPage(@PathVariable(name= "id") int id) {
+        ModelAndView mav = new ModelAndView("edit_session");
+        Sessions sessions = service.get(id);
+        mav.addObject("sessions", sessions);
+
+        return mav;
+
+    }
+    @RequestMapping(value = "/delete/{id}")
+    public String deleteSessoin(@PathVariable(name = "id") int id) {
+        service.delete(id);
+        return "redirect:/";
+    }
+
+
 }
