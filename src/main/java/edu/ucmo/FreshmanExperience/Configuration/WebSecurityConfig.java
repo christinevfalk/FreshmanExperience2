@@ -33,6 +33,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").hasAnyAuthority("USER","ADMIN")
                 .antMatchers("/session").hasAnyAuthority("USER", "ADMIN")
                 .antMatchers("/session/**").hasAuthority("ADMIN")
+<<<<<<< HEAD
+=======
+>>>>>>> Christine
                 .antMatchers(HttpMethod.POST, "/session").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.PUT, "/session/**").hasAuthority("ADMIN")
                 .antMatchers("/users").hasAuthority("ADMIN")
@@ -48,7 +51,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .deleteCookies("JSESSIONID")
                 .permitAll();
         http
-            .csrf()
-            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }
-}

@@ -19,6 +19,7 @@ button.btn-primary[value="Login"]:hover{
   opacity: .8;
 }
 
+<<<<<<< HEAD
 button.btn-primary[value="Logout"]{
   background-color: #cf202e;
   border-color: black;
@@ -56,4 +57,6 @@ div[style*="background-image"] span {
   border-radius: 8px;
   color: white;
   opacity: .7;
-}
+=======
+
+>>>>>>> Christine

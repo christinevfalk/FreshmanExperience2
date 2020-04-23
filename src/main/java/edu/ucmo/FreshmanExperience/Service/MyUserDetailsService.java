@@ -1,21 +1,5 @@
 package edu.ucmo.FreshmanExperience.Service;
 
-        import edu.ucmo.FreshmanExperience.Dao.UserDao;
-        import edu.ucmo.FreshmanExperience.Model.Role;
-        import edu.ucmo.FreshmanExperience.Model.User;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.security.core.GrantedAuthority;
-        import org.springframework.security.core.authority.SimpleGrantedAuthority;
-        import org.springframework.security.core.userdetails.UserDetails;
-        import org.springframework.security.core.userdetails.UserDetailsService;
-        import org.springframework.security.core.userdetails.UsernameNotFoundException;
-        import org.springframework.stereotype.Service;
-
-        import javax.transaction.Transactional;
-        import java.util.ArrayList;
-        import java.util.HashSet;
-        import java.util.List;
-        import java.util.Set;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {
@@ -46,4 +30,7 @@ public class MyUserDetailsService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(user.getUcmoid(), user.getPassword(),
                 user.getActive(), true, true, true, authorities);
     }
+
+
+
 }
