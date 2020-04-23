@@ -1,12 +1,14 @@
 package edu.ucmo.FreshmanExperience.Controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class LoginController {
-    @RequestMapping("/login")
-    public String index(){
+    @RequestMapping(value = "/login")
+    public String index(Model model){
         return "login";
     }
 }

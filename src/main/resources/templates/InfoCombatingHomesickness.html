@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      lang="es">
+      lang="en">
+        lang="es">
 <head>
     <title>Combating Homesickness</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" href="style.css">-->
 </head>
 <body>
-<!--Logged in user, log out button Thymeleaf-->
+<!--Thymeleaf: Logged in user displayed: log out button-->
 <div style="background-color: black; color: white; padding-right: 20px; text-align:right;">
     Logged in User: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
     <form th:action="@{/logout}" method="POST">
@@ -17,12 +17,14 @@
 </div>
 
 <div style="background-color: black; text-align:center;" > <img src="../img/UCMO23.png" alt="UCMO Logo"> </div>
-<div style="text-align:center;">
-    <h1>Combating Homesickness</h1>
-    <p>This session help you combat those feelings of homesickness.</p>
-    <label>Presenter:</label><br>
-    <label>Date/Time:</label><br>
-    <label>Location:</label><br>
-</div>
+    <div style="text-align: center">
+        <h1>Combating Homesickness</h1>
+        <p>This session help you combat those feelings of homesickness.</p>
+        <div style="text-align: justify">
+            <label>Presenter:</label><br>
+            <label>Date/Time:</label><br>
+            <label>Location:</label><br>
+        </div>
+    </div>
 </body>
 </html>

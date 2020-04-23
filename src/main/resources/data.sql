@@ -23,4 +23,4 @@ REPLACE INTO user_role (user_name, role_id) VALUES (700000001,1);
 REPLACE INTO user_role (user_name, role_id) VALUES (700000002,2);
 REPLACE INTO user_role (user_name, role_id) VALUES (700000003,2);
 
-REPLACE INTO session_attendance (id, user_name) VALUES (4,700000001);
+REPLACE INTO session_attendance (id, user_name) VALUES (1,700000001);

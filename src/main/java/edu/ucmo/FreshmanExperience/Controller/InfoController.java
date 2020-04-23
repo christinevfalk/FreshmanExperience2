@@ -38,6 +38,9 @@ public class InfoController {
     @RequestMapping(value = "/InfoYourSuccessNetwork")
     public String InfoYourSuccessNetwork() {return "InfoYourSuccessNetwork";}
 
-    @RequestMapping(value = "/Schedule")
-    public String Schedule() {return "Schedule";}
+    @RequestMapping(value = "/QRBlackboardCheckIn")
+    public String QRBlackboardCheckIn() {return "QRBlackboardCheckIn";}
+
+   // @RequestMapping(value = "/Schedule")
+   // public String Schedule() {return "Schedule";}
 }
