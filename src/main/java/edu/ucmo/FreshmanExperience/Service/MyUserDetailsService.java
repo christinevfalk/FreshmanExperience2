@@ -50,6 +50,8 @@ public class MyUserDetailsService implements UserDetailsService {
     public List < User > getAllUsers() {
         return this.userDao.findAll();
     }
+    public User get(String ucmoid){return userDao.findByUcmoid(ucmoid); }
+
 
 
 }

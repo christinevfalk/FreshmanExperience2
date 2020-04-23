@@ -5,6 +5,11 @@
     <title>Freshman Experience</title>
     <link rel="stylesheet" href="/main.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+    <script>
+        function goBack(){
+            window.history.back()
+        }
+    </script>
 </head>
 <body style="background-color: #cf202e">
 <div style="background-color: black; color: white; padding-right: 20px; text-align:right;">
@@ -12,6 +17,7 @@
     <form th:action="@{/logout}" method="POST">
         <input class="btn btn-primary" type="submit" value="Logout"/>
     </form>
+    <button onclick="goBack()">Back to Schedule</button>
 </div>
 
 <div>
@@ -19,19 +25,24 @@
 </div>
 
 <tr th:each="sessionTitle : ${sessionTitle}">
-<h1 th:text="${sessionTitle}"></h1>
+<h1  th:text="${sessionTitle}"></h1>
+    <a href="add">Add a student to a session</a>
 
 
 
 
 <div style="text-align:center;" >
+
+
     <table border="1" cellpadding="10" align="center">
+
         <thead>
         <tr>
             <th>Student ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
+            <th>Actions</th>
         </tr>
 
         </thead>
@@ -41,6 +52,12 @@
             <td th:text="${students.getFname()}">First Name</td>
             <td th:text="${students.getLname()}">Last Name</td>
             <td th:text="${students.getEmail()}">Email</td>
+            <td>
+            <!--   <a th:href="@{/edit/(ucmoid =${students.ucmoid})}">Edit</a> -->
+
+                <a th:href="@{'/edit/' + ${students.ucmoid}}">Edit</a>
+
+            </td>
         </tr>
         </tbody>
     </table>

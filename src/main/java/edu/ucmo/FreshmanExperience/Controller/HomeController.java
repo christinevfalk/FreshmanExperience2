@@ -6,6 +6,7 @@ import edu.ucmo.FreshmanExperience.Dao.UserDao;
 import edu.ucmo.FreshmanExperience.Model.Role;
 import edu.ucmo.FreshmanExperience.Model.Sessions;
 import edu.ucmo.FreshmanExperience.Model.User;
+import edu.ucmo.FreshmanExperience.Service.MyUserDetailsService;
 import edu.ucmo.FreshmanExperience.Service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -14,7 +15,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -24,6 +25,8 @@ public class HomeController {
 
     @Autowired
     private UserDao userD;
+    @Autowired
+    private MyUserDetailsService service1;
     @Autowired
     private SessionsDao sessionsD;
     @Autowired
@@ -42,6 +45,7 @@ public class HomeController {
             List<Role> list = new ArrayList<Role>(role);
             Role obj = list.get(0);
             System.out.println(obj);
+
             if (obj.getId()==2){
                 List<Sessions> listSessions = service.listAll();
                 model.addAttribute("listSessions", listSessions);
@@ -61,6 +65,7 @@ public class HomeController {
         return "AdminSchedule";
     }
 
+
     @RequestMapping("/list")
     public String listStudents(
             @RequestParam(value = "id") Integer id, Model model)
@@ -73,6 +78,16 @@ public class HomeController {
         model.addAttribute("listStudents", users);
         return "ListStudents";
     }
+
+
+
+//    @RequestMapping("/add")
+//    public String showNewStudentPage(Model model){
+//        User users = new User();
+//        model.addAttribute("users", users);
+//        return "add_student";
+//    }
+
 
     @RequestMapping(value = "/Schedule")
     public String viewHomePage2(Model model) {
@@ -92,14 +107,11 @@ public class HomeController {
     public String viewInfoPage (@RequestParam(value = "id") Integer id, Model model) {
         System.out.println("id = " + id);
         Sessions sessions = service.get(id);
-        if (id == 1) return "BlackboardSession";
-        else if (id == 2) return "InfoFinancialAssistanceSession";
-        else if (id == 3) return "InfoPublicSafety";
-        else if (id == 4) return "InfoGoogleIt";
-        else if (id == 5) return "InfoYourSuccessNetwork";
-        else if (id == 6) return "InfoUniv1400";
-        else if (id == 7) return "InfoTimeManagement";
-        else if (id == 8) return "InfoCombatingHomesickness";
+        if (id == 1) return "InfoYourSuccessNetwork";
+        else if (id == 2) return "InfoSeminar";
+        else if (id == 3) return "InfoBlackboard";
+        else if (id == 4) return "InfoPublicSafety";
+        else if (id == 5) return "InfoCampusDiversity";
         else return "index";
     }
     @RequestMapping(value = "/save", method = RequestMethod.POST)

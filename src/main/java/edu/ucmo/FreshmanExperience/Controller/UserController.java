@@ -34,4 +34,19 @@ public class UserController {
         userDao.findAll().iterator().forEachRemaining(list::add);
         return list;
     }
+
+    @RequestMapping(value = "/edit/{ucmoid}")
+    public ModelAndView showEditUserPage(@PathVariable(name= "ucmoid") String ucmoid) {
+        ModelAndView mav = new ModelAndView("edit_user");
+        User user = service.get(ucmoid);
+        mav.addObject("user", user);
+
+        return mav;
+
+    }
+
+
+
+
+
 }
