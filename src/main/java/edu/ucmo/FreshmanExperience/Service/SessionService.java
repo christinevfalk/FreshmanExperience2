@@ -19,10 +19,7 @@ public class SessionService {
         return (List<Sessions>) sessionsDao.findAll();
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> Christine
     public void save(Sessions sessions){
         sessionsDao.save(sessions);
     }
