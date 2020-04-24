@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -81,12 +82,12 @@ public class HomeController {
 
 
 
-//    @RequestMapping("/add")
-//    public String showNewStudentPage(Model model){
-//        User users = new User();
-//        model.addAttribute("users", users);
-//        return "add_student";
-//    }
+    @RequestMapping("/add")
+    public String showNewStudentPage(Model model){
+        User user = new User();
+        model.addAttribute("user", user);
+        return "add_student";
+    }
 
 
     @RequestMapping(value = "/Schedule")
@@ -117,6 +118,11 @@ public class HomeController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute("sessions") Sessions sessions) {
         service.save(sessions);
+        return "redirect:/";
+    }
+    @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
+    public String saveUser(@ModelAttribute("session_attendance") User user) {
+        service1.save(user);
         return "redirect:/";
     }
 }
