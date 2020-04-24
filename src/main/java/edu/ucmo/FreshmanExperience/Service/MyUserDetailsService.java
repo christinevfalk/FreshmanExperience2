@@ -52,6 +52,11 @@ public class MyUserDetailsService implements UserDetailsService {
     }
     public User get(String ucmoid){return userDao.findByUcmoid(ucmoid); }
 
+    public void save(User user){
+        userDao.save(user);
+    }
+
+
 
 
 }
