@@ -10,15 +10,21 @@ import edu.ucmo.FreshmanExperience.Dao.UserDao;
 import edu.ucmo.FreshmanExperience.Model.Role;
 import edu.ucmo.FreshmanExperience.Model.Sessions;
 import edu.ucmo.FreshmanExperience.Model.User;
+import edu.ucmo.FreshmanExperience.Service.MyUserDetailsService;
 import edu.ucmo.FreshmanExperience.Service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+
+
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +39,8 @@ public class HomeController {
 
     @Autowired
     private UserDao userD;
+    @Autowired
+    private MyUserDetailsService service1;
     @Autowired
     private SessionsDao sessionsD;
 
@@ -70,6 +78,7 @@ public class HomeController {
         return "AdminSchedule";
     }
 
+
     @RequestMapping("/list")
     public String listStudents(
             @RequestParam(value = "id") Integer id, Model model)
@@ -82,6 +91,17 @@ public class HomeController {
         model.addAttribute("listStudents", users);
         return "ListStudents";
     }
+
+
+
+
+    @RequestMapping("/add")
+    public String showNewStudentPage(Model model){
+        User user = new User();
+        model.addAttribute("user", user);
+        return "add_student";
+    }
+
 
 
     @RequestMapping(value = "/Schedule")
@@ -121,4 +141,12 @@ public class HomeController {
     }
 
 
+
+
+    @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
+    public String saveUser(@ModelAttribute("session_attendance") User user) {
+        service1.save(user);
+        return "redirect:/";
+    }
+}
 
