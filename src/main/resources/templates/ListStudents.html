@@ -24,18 +24,12 @@
     <div style="background-color: white; padding-left: 500px; padding-right: 500px; text-align:center;"> <img src="../img/Academic-Mark-2-Line-BW.png" alt="UCMO Logo"> </div>
 </div>
 
+<div style="text-align:center;" >
+<br></br>
 <tr th:each="sessionTitle : ${sessionTitle}">
 <h1  th:text="${sessionTitle}"></h1>
-    <a href="add">Add a student to a session</a>
-
-
-
-
-<div style="text-align:center;" >
-
-
+<br></br>
     <table border="1" cellpadding="10" align="center">
-
         <thead>
         <tr>
             <th>Student ID</th>
@@ -44,7 +38,6 @@
             <th>Email</th>
             <th>Actions</th>
         </tr>
-
         </thead>
         <tbody>
         <tr th:each="students : ${listStudents}">
@@ -53,19 +46,12 @@
             <td th:text="${students.getLname()}">Last Name</td>
             <td th:text="${students.getEmail()}">Email</td>
             <td>
-            <!--   <a th:href="@{/edit/(ucmoid =${students.ucmoid})}">Edit</a> -->
-
-                <a th:href="@{'/edit/' + ${students.ucmoid}}">Edit</a>
-
+               <a th:href="@{'/editUser/' + ${students.ucmoid}}">Edit</a>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
-
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
-
-
 </body>
 </html>
