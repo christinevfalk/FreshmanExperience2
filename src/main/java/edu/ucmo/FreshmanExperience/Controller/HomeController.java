@@ -58,15 +58,12 @@ public class HomeController {
 
         return "Schedule";
     }
-
     @RequestMapping(value = "/AdminSchedule")
     public String viewHomeAdminPage(Model model){
         List<Sessions> listSessions = service.listAll();
         model.addAttribute("listSessions", listSessions);
         return "AdminSchedule";
     }
-
-
     @RequestMapping("/list")
     public String listStudents(
             @RequestParam(value = "id") Integer id, Model model)
@@ -79,31 +76,24 @@ public class HomeController {
         model.addAttribute("listStudents", users);
         return "ListStudents";
     }
-
-
-
     @RequestMapping("/add")
     public String showNewStudentPage(Model model){
         User user = new User();
         model.addAttribute("user", user);
         return "add_student";
     }
-
-
     @RequestMapping(value = "/Schedule")
     public String viewHomePage2(Model model) {
         List<Sessions> listSessions = service.listAll();
         model.addAttribute("listSessions", listSessions);
         return "Schedule";
     }
-
     @RequestMapping("/new")
     public String showNewSessionPage(Model model){
         Sessions sessions = new Sessions();
         model.addAttribute("sessions", sessions);
         return "new_session";
     }
-
     @RequestMapping("/info")
     public String viewInfoPage (@RequestParam(value = "id") Integer id, Model model) {
         System.out.println("id = " + id);
@@ -115,12 +105,25 @@ public class HomeController {
         else if (id == 5) return "InfoCampusDiversity";
         else return "index";
     }
+    @RequestMapping(value = "/editUser/{ucmoid}")
+    public ModelAndView showEditUserPage(@PathVariable(name= "ucmoid") String ucmoid) {
+        ModelAndView mav2 = new ModelAndView("edit_user");
+        User user = service1.get(ucmoid);
+        mav2.addObject("user", user);
+
+        return mav2;
+    }
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute("sessions") Sessions sessions) {
         service.save(sessions);     return "redirect:/";
     }
     @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("user") User user) {
+        service1.save(user);
+        return "redirect:/";
+    }
+    @RequestMapping(value = "/saveEdit", method = RequestMethod.POST)
+    public String saveEditedUser(@ModelAttribute("user") User user) {
         service1.save(user);
         return "redirect:/";
     }
