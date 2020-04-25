@@ -117,8 +117,7 @@ public class HomeController {
     }
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute("sessions") Sessions sessions) {
-        service.save(sessions);
-        return "redirect:/";
+        service.save(sessions);     return "redirect:/";
     }
     @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("session_attendance") User user) {
