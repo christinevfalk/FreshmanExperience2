@@ -60,11 +60,10 @@ public class SessionsController {
         if (id >= 1 &&id <= 8)
         return "QRCheckIn";
         else return "index";
-<<<<<<< HEAD
+
         }
-        }
-=======
-    }
+
+
 
     @RequestMapping(value = "/edit/{id}")
     public ModelAndView showEditSessionPage(@PathVariable(name= "id") int id) {
@@ -83,4 +82,4 @@ public class SessionsController {
 
 
 }
->>>>>>> master
+

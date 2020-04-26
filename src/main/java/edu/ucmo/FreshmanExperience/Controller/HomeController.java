@@ -138,10 +138,6 @@ public class HomeController {
     }
 
 
-    }
-
-
-
 
     @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("user") User user) {

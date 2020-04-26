@@ -19,7 +19,7 @@ button.btn-primary[value="Login"]:hover{
   opacity: .8;
 }
 
-<<<<<<< HEAD
+
 button.btn-primary[value="Logout"]{
   background-color: #cf202e;
   border-color: black;
@@ -58,6 +58,13 @@ div[style*="background-image"] span {
   color: white;
   opacity: .7;
 }
-=======
 
->>>>>>> Christine
+div.container4 {
+  height: 10em;
+  position: relative }
+div.container4 p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0 -50% 0 0;
+  transform: translate(-50%, -50%) }

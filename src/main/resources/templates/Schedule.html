@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
+
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
@@ -8,6 +8,14 @@
     <title>Schedule of Events</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+    <style>
+        .center {
+            margin: auto;
+            width: 50%;
+            border: 3px solid #cf202e;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
 <div style="background-color: black; color: white; padding-right: 20px; text-align:right;">
@@ -17,48 +25,10 @@
     </form>
 </div>
 <div style="background-color: black; text-align:center;"  > <img src="../img/UCMO23.png" alt="UCMO Logo"> </div>
-<div style="text-align:center;" >
-    <h1>Schedule of Events</h1>
-    <p>Schedule of Events Listed.</p>
-    <a href="new">Create New Session</a>
-    <div style="text-align: center">
-        <table border="1" cellpadding="10">
-            <thead>
-              <tr>
-                <th>Session ID</th>
-                <th>Title</th>
-                <th>Location</th>
-                <th>Instructor</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="sessions : ${listSessions}">
-                <td th:text="${sessions.id}">Session ID</td>
-                <td th:text="${sessions.title}">Title</td>
-                <td th:text="${sessions.location}">Location</td>
-                <td th:text="${sessions.instructor}">Instructor</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-=======
-<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Schedule of Events</title>
-    <!--<link rel="stylesheet" href="style.css">-->
-</head>
-<body>
-<div style="background-color: black; text-align:center;"  > <img src="../img/UCMO23.png" alt="UCMO Logo"> </div>
-<div style="background-color: black; color: white; padding-right: 20px; text-align:right;">
-    Logged in user: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
-    <form th:action="@{/logout}" method="POST">
-        <input class="btn btn-primary" type="submit" value="Logout"/>
-    </form>
-</div>
 
 <div style="text-align:center;" >
     <h1>Schedule of Events</h1>
-
+    <div class="center">
     <table border="1" cellpadding="10" align="center">
         <thead>
         <tr>
@@ -84,7 +54,7 @@
         </tr>
         </tbody>
     </table>
->>>>>>> Christine
+    </div>
 
 </div>
 </body>
