@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Campus Diversity Session</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="style.css">-->
+    <style>
+        .center {
+            margin: auto;
+            width: 50%;
+            border: 3px solid #cf202e;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<!--Logged in user, log out button Thymeleaf-->
+<div style="background-color: black; color: white; padding-right: 20px; text-align:right;">
+    Logged in User: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
+    <form th:action="@{/logout}" method="POST">
+        <input class="btn btn-primary" type="submit" value="Logout"; style="background-color: #cf202e; border-color: black;"/>
+    </form>
+</div>
+<div style="background-color: black; text-align:center;" > <img src="../img/UCMO23.png" alt="UCMO Logo"> </div>
+<div  style="text-align:center;" >
+    <h1>Campus Diversity</h1>
+    <label>Presenter: Dr. Chen</label><br>
+    <label>Date/Time: August 14th @ 1:00 p.m.</label><br>
+    <label>Location: Union 104</label><br>
+    <div class="center">
+    <p>University of Central Missouri is privileged to host a diverse student body.  Explore the topic of diversity on campus with this session.</p>
+    </div>
+</div>
+</body>
+</html>

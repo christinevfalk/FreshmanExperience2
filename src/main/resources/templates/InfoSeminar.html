@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+    <link rel=icon href=/favicon.png>
+    <title>Declassifying the First-Year Seminar Session</title>
+    <!--<link rel="stylesheet" href="main.css">-->
+    <style>
+        .center {
+            margin: auto;
+            width: 50%;
+            border: 3px solid #cf202e;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<!--Logged in user, log out button Thymeleaf-->
+<div style="background-color: black; color: white; padding-right: 20px; text-align:right;">
+    Logged in User: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
+    <form th:action="@{/logout}" method="POST">
+        <input class="btn btn-primary" type="submit" value="Logout"; style="background-color: #cf202e; border-color: black;"/>
+    </form>
+</div>
+<div style="background-color: black; text-align:center;" > <img src="../img/UCMO23.png" alt="UCMO Logo"> </div>
+<div style="text-align:center;">
+    <h1>Declassifying the First-Year Seminar</h1>
+    <label>Presenter: Dr. Grebe</label><br>
+    <label>Date/Time: August 14th @ 1:00 p.m.</label><br>
+    <label>Location: Union 101</label><br>
+    <div class="center">
+    <p>There are a lot of changes ahead and staying on top of everything can be challenging.  This session teaches you what steps to take to start of  on the right track for your college career.</p>
+    </div>
+
+</div>
+</body>
+</html>

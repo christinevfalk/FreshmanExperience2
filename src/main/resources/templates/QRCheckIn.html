@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>QR Blackboard Check-in</title>
+    <style>
+    .checkinBox {
+        margin: auto;
+        width: 50%;
+        border: 10px solid white;
+        padding: 10px;
+        background-color: #cf202e;
+    }
+    </style>
+</head>
+<body style="background-color: #cf202e">
+
+<!-- display name of user and message stating they have been checked into a specific session -->
+<div class="checkinBox">
+    <tr th:each="user : ${user}">
+    <h1 style="display: inline;" th:text="${user.Fname}"></h1>
+    <h1 style="display:inline;" >, your attendance has been recorded for the </h1>
+        <tr th:each="sessionTitle : ${sessionTitle}">
+    <h1 style="display: inline;" th:text="${sessionTitle}"></h1>
+        <h1 style="display: inline"> Session.</h1></tr>
+</div>
+<!-- MULE IMAGE -->
+<div style="background-color: white; text-align: center; margin: 10px"> <img src="../img/Mule_whOutline_Lt.jpg" alt="UCMO Logo"> </div>
+</body>
+</html>
