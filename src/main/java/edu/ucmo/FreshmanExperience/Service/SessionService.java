@@ -19,7 +19,6 @@ public class SessionService {
         return (List<Sessions>) sessionsDao.findAll();
     }
 
-
     public void save(Sessions sessions){
         sessionsDao.save(sessions);
     }

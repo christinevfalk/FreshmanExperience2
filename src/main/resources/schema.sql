@@ -4,6 +4,8 @@ CREATE TABLE sessions (
     title           VARCHAR(255)    NOT NULL,
     location        VARCHAR(255)    NOT NULL,
     instructor      VARCHAR(255)    NOT NULL,
+    date1           DATE            NOT NULL,
+    time1           TIME            NOT NULL,
     PRIMARY KEY (id)
     );
 DROP TABLE IF EXISTS users;

@@ -12,14 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+
+import java.util.*;
 
 @Controller
 public class HomeController {
@@ -114,7 +112,7 @@ public class HomeController {
         return mav2;
     }
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveProduct(@ModelAttribute("sessions") Sessions sessions) {
+    public String saveSession(@ModelAttribute("sessions") Sessions sessions) {
         service.save(sessions);     return "redirect:/";
     }
     @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
@@ -126,5 +124,42 @@ public class HomeController {
     public String saveEditedUser(@ModelAttribute("user") User user) {
         service1.save(user);
         return "redirect:/";
+    }
+    @RequestMapping("/tshirts")
+    public String saveTshirts(Model model){
+        ArrayList<User> arr = new ArrayList<>();
+
+        Sessions listSessions1 = service.get(1);
+        Sessions listSessions2 = service.get(2);
+        Sessions listSessions3 = service.get(3);
+        Sessions listSessions4 = service.get(4);
+        Sessions listSessions5 = service.get(5);
+
+        Set<User> list1 = listSessions1.getUsers();
+        for (User user : list1)
+            arr.add(user);
+        Set<User> list2 = listSessions2.getUsers();
+        for (User user : list2)
+            arr.add(user);
+        Set<User> list3 = listSessions3.getUsers();
+        for (User user : list3)
+            arr.add(user);
+        Set<User> list4 = listSessions4.getUsers();
+        for (User user : list4)
+            arr.add(user);
+        Set<User> list5 = listSessions5.getUsers();
+        for (User user : list5)
+            arr.add(user);
+        Set<User> set = new HashSet<>();
+
+        for (User element: arr) {
+           int freq;
+           freq = Collections.frequency(arr, element);
+           if (freq > 3) {
+               set.add(element);
+           }
+        }
+        model.addAttribute("set", set);
+        return "TshirtList";
     }
 }

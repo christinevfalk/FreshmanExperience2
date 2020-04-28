@@ -1,6 +1,8 @@
 package edu.ucmo.FreshmanExperience.Model;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.Objects;
 import java.util.Set;
 
@@ -17,11 +19,18 @@ public class Sessions {
     private String location;
     @Column
     private String instructor;
+    @Column
+    private Date date1;
+    @Column
+    private Time time1;
 
-    public Sessions(String title, String location, String instructor){
+
+    public Sessions(String title, String location, String instructor, Date date1, Time time1){
         this.title = title;
         this.location = location;
         this.instructor = instructor;
+        this.date1 = date1;
+        this.time1 = time1;
     }
 
     public Sessions(){}
@@ -61,6 +70,22 @@ public class Sessions {
 
     public void setInstructor(String instructor) {
         this.instructor = instructor;
+    }
+
+    public Date getDate1() {
+        return date1;
+    }
+
+    public void setDate1(Date date1) {
+        this.date1 = date1;
+    }
+
+    public Time getTime1() {
+        return time1;
+    }
+
+    public void setTime1(Time time1) {
+        this.time1 =time1;
     }
 
     public Set<User> getUsers(){

@@ -13,9 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.Set;
-
 
 @Controller
 public class SessionsController {
@@ -52,7 +50,6 @@ public class SessionsController {
             return "QRCheckIn";
         else return "index";
     }
-
     @RequestMapping(value = "/edit/{id}")
     public ModelAndView showEditSessionPage(@PathVariable(name= "id") int id) {
         ModelAndView mav = new ModelAndView("edit_session");
@@ -67,6 +64,4 @@ public class SessionsController {
         service.delete(id);
         return "redirect:/";
     }
-
-
 }
