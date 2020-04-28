@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
 </head>
 <body style="background-color: #cf202e">
-<div style="background-color: black; color: white; padding-right: 20px; text-align:right;">
-    Logged in user: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
-    <form th:action="@{/logout}" method="POST">
-        <input class="btn btn-primary" type="submit" value="Logout"/>
-    </form>
-</div>
+    <div style="background-color: black; color: white; padding-right: 20px; text-align:right;">
+        Logged in User: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
+        <form th:action="@{/logout}" method="POST">
+            <input class="btn btn-primary" type="submit" value="Logout"; style="background-color: #cf202e; border-color: black;"/>
+        </form>
+    </div>
 
 <div>
    <div style="background-color: white; padding-left: 500px; padding-right: 500px; text-align:center;"> <img src="../img/Academic-Mark-2-Line-BW.png" alt="UCMO Logo"> </div>
@@ -23,6 +23,18 @@
 <h1 style="text-align:center;">Freshman Experience</h1>
 <p style="text-align:center;">WELCOME TO FRESHMAN EXPERIENCE</p>
 
+
+    <div style="text-align: center">
+        <form method="GET" th:action="@{/InfoPageTest}">
+            <input type="submit" value="Informational Sessions">
+        </form>
+    </div>
+    <div style="text-align: center">
+        <form method="GET" th:action="@{/Schedule}">
+          <input type="submit" value="Schedule">
+        </form>
+    </div>
+
 <div style="text-align:center;">
         <form method="GET" th:action="@{/Schedule}">
             <input type="submit" value="Schedule">
@@ -30,5 +42,7 @@
     </div>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
 
+
 </body>
+
 </html>

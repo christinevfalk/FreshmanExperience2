@@ -10,7 +10,9 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,7 +30,11 @@ public class SessionsController {
     private SessionService service;
 
     @GetMapping("/session/{id}")
+
+
+
     public String session(@PathVariable int id, Model model) {
+
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
@@ -36,22 +42,28 @@ public class SessionsController {
             System.out.println("Session " + currentUserName + "," + id);
             User user = userD.findByUcmoid(currentUserName);
             Sessions sessions = service.get(id);
+
             String sessionTitle = sessions.getTitle();
             model.addAttribute("sessionTitle", sessionTitle);
+
             Set<User> users = sessions.getUsers();
             users.add(user);
             sessions.setUsers(users);
             sessionsD.save(sessions);
+
             model.addAttribute("user", user);
         }
         else {
-            System.out.println("Error - No One Logged In");
-            return "login";
+        System.out.println("Error - No One Logged In");
+        return "login";
         }
         if (id >= 1 &&id <= 8)
-            return "QRCheckIn";
+        return "QRCheckIn";
         else return "index";
-    }
+
+        }
+
+
 
     @RequestMapping(value = "/edit/{id}")
     public ModelAndView showEditSessionPage(@PathVariable(name= "id") int id) {
@@ -70,3 +82,4 @@ public class SessionsController {
 
 
 }
+

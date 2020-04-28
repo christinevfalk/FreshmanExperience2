@@ -1,5 +1,9 @@
 package edu.ucmo.FreshmanExperience.Controller;
 
+
+import edu.ucmo.FreshmanExperience.Model.Sessions;
+import edu.ucmo.FreshmanExperience.Service.SessionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import edu.ucmo.FreshmanExperience.Dao.RoleDao;
 import edu.ucmo.FreshmanExperience.Dao.SessionsDao;
 import edu.ucmo.FreshmanExperience.Dao.UserDao;
@@ -16,13 +20,22 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+
 import org.springframework.web.servlet.ModelAndView;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+
 @Controller
 public class HomeController {
+
+    @Autowired
+    private SessionService service;
 
     @Autowired
     private UserDao userD;
@@ -30,8 +43,7 @@ public class HomeController {
     private MyUserDetailsService service1;
     @Autowired
     private SessionsDao sessionsD;
-    @Autowired
-    private SessionService service;
+
     @Autowired
     private RoleDao roleD;
 
@@ -118,6 +130,9 @@ public class HomeController {
         service.save(sessions);
         return "redirect:/";
     }
+
+
+
     @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("user") User user) {
         service1.save(user);

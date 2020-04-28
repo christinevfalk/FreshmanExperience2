@@ -177,3 +177,4 @@ REPLACE INTO session_attendance (id, user_name) VALUES (5,700000028);
 REPLACE INTO session_attendance (id, user_name) VALUES (5,700000031);
 REPLACE INTO session_attendance (id, user_name) VALUES (5,700000017);
 REPLACE INTO session_attendance (id, user_name) VALUES (5,700000014);
+
