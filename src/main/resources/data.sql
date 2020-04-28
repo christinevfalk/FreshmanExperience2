@@ -158,9 +158,6 @@ REPLACE INTO user_role (user_name, role_id) VALUES (700000034,1);
 REPLACE INTO user_role (user_name, role_id) VALUES (700000035,1);
 REPLACE INTO user_role (user_name, role_id) VALUES (700000036,2);
 
-<<<<<<< HEAD
-REPLACE INTO session_attendance (id, user_name) VALUES (1,700000001);
-=======
 REPLACE INTO session_attendance (id, user_name) VALUES (1,700000001);
 REPLACE INTO session_attendance (id, user_name) VALUES (1,700000013);
 REPLACE INTO session_attendance (id, user_name) VALUES (1,700000026);
@@ -180,4 +177,4 @@ REPLACE INTO session_attendance (id, user_name) VALUES (5,700000028);
 REPLACE INTO session_attendance (id, user_name) VALUES (5,700000031);
 REPLACE INTO session_attendance (id, user_name) VALUES (5,700000017);
 REPLACE INTO session_attendance (id, user_name) VALUES (5,700000014);
->>>>>>> Christine
+
