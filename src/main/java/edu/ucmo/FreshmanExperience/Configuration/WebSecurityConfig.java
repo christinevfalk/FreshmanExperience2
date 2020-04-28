@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/").hasAnyAuthority("USER","ADMIN")
                 .antMatchers("/session").hasAnyAuthority("USER", "ADMIN")
-                .antMatchers("/session/**").hasAuthority("ADMIN")
+                .antMatchers("/session/**").hasAnyAuthority("USER","ADMIN")
 
                 .antMatchers("/AdminSchedule/**").hasAuthority("ADMIN")
                 .antMatchers("/AdminSchedule").hasAuthority("ADMIN")
