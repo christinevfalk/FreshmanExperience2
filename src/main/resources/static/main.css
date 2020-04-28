@@ -20,3 +20,51 @@ button.btn-primary[value="Login"]:hover{
 }
 
 
+button.btn-primary[value="Logout"]{
+  background-color: #cf202e;
+  border-color: black;
+  transition : all .2s ease-in-out;
+}
+
+button.btn-primary[value="Logout"]:hover{
+  opacity: .8;
+  border-color: black;
+}
+
+button.btn-primary[value="Blackboard Session"]{
+ background-color: #cf202e;
+  transition: all .2s ease-in-out;
+}
+
+div[style*="background-image"]{
+  height: 100vh;
+  background-repeat:no-repeat;
+  background-position: top center;
+  background-color: white;
+}
+
+div[style*="background-image"] h1 {
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  height : 100%;
+}
+
+div[style*="background-image"] span {
+  display: inline-block;
+  padding: 1.5em;
+  background-color: lightgrey;
+  border-radius: 8px;
+  color: white;
+  opacity: .7;
+}
+
+div.container4 {
+  height: 10em;
+  position: relative }
+div.container4 p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0 -50% 0 0;
+  transform: translate(-50%, -50%) }

@@ -5,6 +5,15 @@
     <title>Freshman Experience</title>
     <link rel="stylesheet" href="/main.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+    <style>
+        .center {
+            margin: auto;
+            width: 50%;
+            border: 3px solid white;
+            border-color: white;
+            padding: 10px;
+        }
+    </style>
     <script>
         function goBack(){
             window.history.back()
@@ -13,15 +22,20 @@
 </head>
 <body style="background-color: #cf202e">
 <div style="background-color: black; color: white; padding-right: 20px; text-align:right;">
-    Logged in user: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
+        Logged in user: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
+    <div style="justify-content: left;">
+        <button class="btn btn-primary" style="background-color: #cf202e; color:white; border-color: black" onclick="goBack()">Back to Schedule</button>
+    </div>
     <form th:action="@{/logout}" method="POST">
-        <input class="btn btn-primary" type="submit" value="Logout"/>
+        <input class="btn btn-primary" style="background-color: #cf202e; color:white; border-color: black" type="submit" value="Logout"/>
     </form>
-    <button onclick="goBack()">Back to Schedule</button>
+
 </div>
 
 <div>
-    <div style="background-color: white; padding-left: 500px; padding-right: 500px; text-align:center;"> <img src="../img/Academic-Mark-2-Line-BW.png" alt="UCMO Logo"> </div>
+    <div style="background-color: white; padding-left: 500px; padding-right: 500px; text-align:center;">
+        <img style="width: 50%; height: 50%;" src="../img/Academic-Mark-2-Line-BW.png" alt="UCMO Logo">
+    </div>
 </div>
 
 <div style="text-align:center;" >
@@ -29,6 +43,7 @@
 <tr th:each="sessionTitle : ${sessionTitle}">
 <h1  th:text="${sessionTitle}"></h1>
 <br></br>
+   <div class="center">
     <table border="1" cellpadding="10" align="center">
         <thead>
         <tr>
@@ -36,7 +51,7 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
-            <th>Actions</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -51,7 +66,9 @@
         </tr>
         </tbody>
     </table>
-</div>
+   </div>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+</div>
 </body>
 </html>

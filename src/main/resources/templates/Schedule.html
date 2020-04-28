@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
 <head>
     <title>Schedule of Events</title>
-    <!--<link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+    <style>
+        .center {
+            margin: auto;
+            width: 50%;
+            border: 3px solid #cf202e;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-<div style="background-color: black; text-align:center;"  > <img src="../img/UCMO23.png" alt="UCMO Logo"> </div>
 <div style="background-color: black; color: white; padding-right: 20px; text-align:right;">
-    Logged in user: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
+    Logged in User: <b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
     <form th:action="@{/logout}" method="POST">
-        <input class="btn btn-primary" type="submit" value="Logout"/>
+        <input class="btn btn-primary" type="submit" value="Logout"; style="background-color: #cf202e; border-color: black;"/>
     </form>
 </div>
+<div style="background-color: black; text-align:center;"  > <img src="../img/UCMO23.png" alt="UCMO Logo"> </div>
 
 <div style="text-align:center;" >
     <h1>Schedule of Events</h1>
-
+    <div class="center">
     <table border="1" cellpadding="10" align="center">
         <thead>
         <tr>
@@ -41,6 +54,7 @@
         </tr>
         </tbody>
     </table>
+    </div>
 
 </div>
 </body>
