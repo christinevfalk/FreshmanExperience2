@@ -156,12 +156,18 @@ REPLACE INTO user_role (user_name, role_id) VALUES (700000034,1);
 REPLACE INTO user_role (user_name, role_id) VALUES (700000035,1);
 REPLACE INTO user_role (user_name, role_id) VALUES (700000036,2);
 
-REPLACE INTO session_attendance (id, user_name) VALUES (5,700000005);
-REPLACE INTO session_attendance (id, user_name) VALUES (5,700000028);
-REPLACE INTO session_attendance (id, user_name) VALUES (5,700000031);
-REPLACE INTO session_attendance (id, user_name) VALUES (5,700000017);
-REPLACE INTO session_attendance (id, user_name) VALUES (5,700000014);
-
+REPLACE INTO session_attendance (id, user_name) VALUES (1,700000010);
+REPLACE INTO session_attendance (id, user_name) VALUES (1,700000023);
+REPLACE INTO session_attendance (id, user_name) VALUES (1,700000036);
+REPLACE INTO session_attendance (id, user_name) VALUES (2,700000010);
+REPLACE INTO session_attendance (id, user_name) VALUES (2,700000023);
+REPLACE INTO session_attendance (id, user_name) VALUES (2,700000036);
+REPLACE INTO session_attendance (id, user_name) VALUES (3,700000010);
+REPLACE INTO session_attendance (id, user_name) VALUES (3,700000023);
+REPLACE INTO session_attendance (id, user_name) VALUES (3,700000036);
+REPLACE INTO session_attendance (id, user_name) VALUES (4,700000010);
+REPLACE INTO session_attendance (id, user_name) VALUES (4,700000023);
+REPLACE INTO session_attendance (id, user_name) VALUES (4,700000036);
 REPLACE INTO session_attendance (id, user_name) VALUES (5,700000010);
 REPLACE INTO session_attendance (id, user_name) VALUES (5,700000023);
 REPLACE INTO session_attendance (id, user_name) VALUES (5,700000036);

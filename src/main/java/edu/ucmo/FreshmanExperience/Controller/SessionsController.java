@@ -49,6 +49,7 @@ public class SessionsController {
         else return "index";
 
     }
+    //Admin can edit a session
     @RequestMapping(value = "/edit/{id}")
     public ModelAndView showEditSessionPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("edit_session");
@@ -56,6 +57,7 @@ public class SessionsController {
         mav.addObject("sessions", sessions);
         return mav;
     }
+    //Admin can delete a session
     @RequestMapping(value = "/delete/{id}")
     public String deleteSessoin(@PathVariable(name = "id") int id) {
         service.delete(id);

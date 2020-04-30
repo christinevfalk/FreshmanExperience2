@@ -117,15 +117,18 @@ public class HomeController {
         mav2.addObject("user", user);
         return mav2;
     }
+    //Saves 'Add session'
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveSession(@ModelAttribute("sessions") Sessions sessions) {
         service.save(sessions);     return "redirect:/";
     }
+    //Saves 'Add new student'
     @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("user") User user) {
         service1.save(user);
         return "redirect:/";
     }
+    //Saves student information after editing
     @RequestMapping(value = "/saveEdit", method = RequestMethod.POST)
     public String saveEditedUser(@ModelAttribute("user") User user) {
         service1.save(user);
