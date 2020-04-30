@@ -4,8 +4,6 @@ INSERT INTO sessions (title, location, instructor, date1, time1) VALUES ('Blackb
 INSERT INTO sessions (title, location, instructor, date1, time1) VALUES ('Public Safety', 'Union 102', 'Park', '2020-08-14', '01:00');
 INSERT INTO sessions (title, location, instructor, date1, time1) VALUES ('Campus Diversity', 'Union 104', 'Chen', '2020-08-14', '01:00');
 
-
-
 REPLACE INTO roles VALUE (1, 'USER');
 REPLACE INTO roles VALUE (2, 'ADMIN');
 
@@ -158,29 +156,6 @@ REPLACE INTO user_role (user_name, role_id) VALUES (700000034,1);
 REPLACE INTO user_role (user_name, role_id) VALUES (700000035,1);
 REPLACE INTO user_role (user_name, role_id) VALUES (700000036,2);
 
-REPLACE INTO session_attendance (id, user_name) VALUES (1,700000001);
-REPLACE INTO session_attendance (id, user_name) VALUES (1,700000013);
-REPLACE INTO session_attendance (id, user_name) VALUES (1,700000026);
-REPLACE INTO session_attendance (id, user_name) VALUES (1,700000008);
-REPLACE INTO session_attendance (id, user_name) VALUES (1,700000010);
-REPLACE INTO session_attendance (id, user_name) VALUES (1,700000023);
-REPLACE INTO session_attendance (id, user_name) VALUES (1,700000036);
-REPLACE INTO session_attendance (id, user_name) VALUES (2,700000011);
-REPLACE INTO session_attendance (id, user_name) VALUES (2,700000030);
-REPLACE INTO session_attendance (id, user_name) VALUES (2,700000003);
-REPLACE INTO session_attendance (id, user_name) VALUES (2,700000010);
-REPLACE INTO session_attendance (id, user_name) VALUES (2,700000023);
-REPLACE INTO session_attendance (id, user_name) VALUES (2,700000036);
-REPLACE INTO session_attendance (id, user_name) VALUES (3,700000002);
-REPLACE INTO session_attendance (id, user_name) VALUES (3,700000016);
-REPLACE INTO session_attendance (id, user_name) VALUES (3,700000020);
-REPLACE INTO session_attendance (id, user_name) VALUES (3,700000021);
-REPLACE INTO session_attendance (id, user_name) VALUES (4,700000025);
-REPLACE INTO session_attendance (id, user_name) VALUES (4,700000019);
-REPLACE INTO session_attendance (id, user_name) VALUES (4,700000018);
-REPLACE INTO session_attendance (id, user_name) VALUES (4,700000010);
-REPLACE INTO session_attendance (id, user_name) VALUES (4,700000023);
-REPLACE INTO session_attendance (id, user_name) VALUES (4,700000036);
 REPLACE INTO session_attendance (id, user_name) VALUES (5,700000005);
 REPLACE INTO session_attendance (id, user_name) VALUES (5,700000028);
 REPLACE INTO session_attendance (id, user_name) VALUES (5,700000031);

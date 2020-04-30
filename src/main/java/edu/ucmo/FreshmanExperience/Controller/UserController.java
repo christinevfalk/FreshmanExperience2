@@ -10,8 +10,6 @@ import edu.ucmo.FreshmanExperience.Service.MyUserDetailsService;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 @RestController
 @RequestMapping("users")
 public class UserController {
