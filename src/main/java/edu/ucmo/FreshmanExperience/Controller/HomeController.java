@@ -25,13 +25,11 @@ import java.util.List;
 
 import org.springframework.web.servlet.ModelAndView;
 
-<<<<<<< HEAD
+
 import java.util.*;
-=======
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
->>>>>>> master
 
 
 @Controller
@@ -145,7 +143,7 @@ public class HomeController {
         service1.save(user);
         return "redirect:/";
     }
-<<<<<<< HEAD
+
     @RequestMapping("/tshirts")
     public String saveTshirts(Model model){
         ArrayList<User> arr = new ArrayList<>();
@@ -183,6 +181,5 @@ public class HomeController {
         model.addAttribute("set", set);
         return "TshirtList";
     }
-=======
->>>>>>> master
+
 }

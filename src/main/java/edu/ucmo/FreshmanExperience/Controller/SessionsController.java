@@ -58,15 +58,8 @@ public class SessionsController {
         if (id >= 1 &&id <= 8)
         return "QRCheckIn";
         else return "index";
-<<<<<<< HEAD
+
     }
-=======
-
-        }
-
-
-
->>>>>>> master
     @RequestMapping(value = "/edit/{id}")
     public ModelAndView showEditSessionPage(@PathVariable(name= "id") int id) {
         ModelAndView mav = new ModelAndView("edit_session");
@@ -81,11 +74,9 @@ public class SessionsController {
         service.delete(id);
         return "redirect:/";
     }
-<<<<<<< HEAD
-}
-=======
-
 
 }
 
->>>>>>> master
+
+
+
