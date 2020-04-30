@@ -33,10 +33,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").hasAnyAuthority("USER","ADMIN")
                 .antMatchers("/session").hasAnyAuthority("USER", "ADMIN")
                 .antMatchers("/session/**").hasAnyAuthority("USER","ADMIN")
-
                 .antMatchers("/AdminSchedule/**").hasAuthority("ADMIN")
                 .antMatchers("/AdminSchedule").hasAuthority("ADMIN")
-
+                .antMatchers("/tshirts").hasAuthority("ADMIN")
+                .antMatchers("/add").hasAuthority("ADMIN")
+                .antMatchers("/new").hasAuthority("ADMIN")
+                .antMatchers("/edit").hasAuthority("ADMIN")
+                .antMatchers("/edit/**").hasAuthority("ADMIN")
+                .antMatchers("/list").hasAuthority("ADMIN")
+                .antMatchers("/list/**").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.POST, "/session").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.PUT, "/session/**").hasAuthority("ADMIN")
                 .antMatchers("/users").hasAuthority("ADMIN")
